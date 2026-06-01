@@ -7,7 +7,7 @@ import React from 'react';
 import { T, t } from './i18n';
 import { Reveal, CoverImage, ArrowGlyph, BigCTA, Footer } from './components';
 
-function HomePage({ go, goProject }) {
+function HomePage({ go }) {
   return (
     <main className="page-root" data-screen-label="Home">
 
@@ -124,7 +124,7 @@ function HomePage({ go, goProject }) {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
           {[
           {
-            era: "25 — now", slug: "luci-ai",
+            era: "25 — now", slug: "luci-ai", href: "/work-memories-ai.html",
             title_en: "Building AI Product",
             title_zh: "构建 AI 产品",
             count_en: "3 projects",
@@ -133,7 +133,7 @@ function HomePage({ go, goProject }) {
             tone: "mono"
           },
           {
-            era: "23 — 24", slug: "emosync",
+            era: "23 — 24", slug: "emosync", href: "/work-emosync.html",
             title_en: "Studying Interaction",
             title_zh: "学习交互设计",
             count_en: "2 projects",
@@ -142,7 +142,7 @@ function HomePage({ go, goProject }) {
             tone: "mono-blue"
           },
           {
-            era: "21 — 23", slug: "archive-21-23",
+            era: "21 — 23", slug: "archive-21-23", href: "/work-archive-21-23.html",
             title_en: "Shaping Portfolio",
             title_zh: "塑造作品集",
             count_en: "5 projects · PDF",
@@ -152,7 +152,7 @@ function HomePage({ go, goProject }) {
           }].
           map((e, i) =>
           <Reveal key={e.era} delay={i * 100}>
-              <article onClick={() => go("work")} style={{ cursor: "pointer", display: "flex", flexDirection: "column" }}>
+              <article onClick={() => window.location.href = e.href} style={{ cursor: "pointer", display: "flex", flexDirection: "column" }}>
                 <div style={{ aspectRatio: "4 / 5", position: "relative" }}>
                   <CoverImage src={`images/home/era-${e.slug}.png`} label={e.era} sub={t(e.title_en, e.title_zh)} tone={e.tone} />
                 </div>
@@ -298,11 +298,12 @@ function HomePage({ go, goProject }) {
           {/* Social cards */}
           <div style={{ marginTop: 64, display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16 }}>
             {[
-            { name: "网易云音乐", handle_en: "Music · covers", handle_zh: "翻唱", img_en: "Sing / Music", img_zh: "唱歌 / 音乐", imgSrc: "images/home/social-music.jpg", tone: "mono", link: t("Go to NetEase Music ↗", "跳转网易云 ↗") },
-            { name: "YouTube", handle_en: "Channel · @zetazheng_0702", handle_zh: "频道 · @zetazheng_0702", img_en: "Performance video", img_zh: "表演视频", imgSrc: "images/home/social-youtube.jpg", tone: "mono-blue", link: t("Go to YouTube ↗", "跳转 YouTube ↗") },
-            { name: "小红书", handle_en: "@郑泽塔 · more expression", handle_zh: "@郑泽塔 · 更多自我表达", img_en: "Daily expression", img_zh: "日常表达", imgSrc: "images/home/social-xhs.jpg", tone: "mono-mist", link: t("Go to xiaohongshu ↗", "跳转小红书 ↗") }].
+            { name: "网易云音乐", handle_en: "Music · covers", handle_zh: "翻唱", img_en: "Sing / Music", img_zh: "唱歌 / 音乐", imgSrc: "images/home/social-music.jpg", tone: "mono", link: t("Go to NetEase Music ↗", "跳转网易云 ↗"), url: "https://music.163.com/#/artist?id=34422300" },
+            { name: "YouTube", handle_en: "Channel · @zetazheng_0702", handle_zh: "频道 · @zetazheng_0702", img_en: "Performance video", img_zh: "表演视频", imgSrc: "images/home/social-youtube.jpg", tone: "mono-blue", link: t("Go to YouTube ↗", "跳转 YouTube ↗"), url: "https://www.youtube.com/@zetazheng_0702" },
+            { name: "小红书", handle_en: "@郑泽塔 · more expression", handle_zh: "@郑泽塔 · 更多自我表达", img_en: "Daily expression", img_zh: "日常表达", imgSrc: "images/home/social-xhs.jpg", tone: "mono-mist", link: t("Go to xiaohongshu ↗", "跳转小红书 ↗"), url: "https://www.xiaohongshu.com/user/profile/5a06ae22e8ac2b0a7b3537df" }].
             map((s, i) =>
             <Reveal key={s.name} delay={i * 90}>
+              <a href={s.url} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>
                 <div className="social-card" style={{ background: "rgba(255,255,255,0.04)", borderColor: "rgba(255,255,255,0.25)", color: "var(--paper)", opacity: "1", borderStyle: "none" }}>
                   <div className="sc-image" style={{ borderColor: "rgba(255,255,255,0.25)" }}>
                     <CoverImage src={s.imgSrc} label={t(s.img_en, s.img_zh)} tone={s.tone} />
@@ -318,7 +319,8 @@ function HomePage({ go, goProject }) {
                     <div style={{ fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.08em", color: "var(--steel)", marginTop: 8, textTransform: "uppercase" }}>{s.link}</div>
                   </div>
                 </div>
-              </Reveal>
+              </a>
+            </Reveal>
             )}
           </div>
         </div>

@@ -17,8 +17,8 @@ const PROJECTS = {
     eyebrow_zh: "AI 产品经理 · 产品设计 · 25.05—25.11 · 旧金山",
     title_en: ["LUCI", "AI"],
     title_zh: ["LUCI", "AI"],
-    tagline_en: "Personal Memory Companion.",
-    tagline_zh: "个人记忆伴侣。",
+    tagline_en: "Personal Memory Companion",
+    tagline_zh: "个人记忆伴侣",
     desc_en: "Hardware & App Ecosystem within memories.ai — bridging physical capture with AI memory models. I defined market positioning, developed the \"Highlights\" core feature, led the US & EU Beta Interview Program, and refined the brand identity.",
     desc_zh: "memories.ai 旗下的硬件与应用生态 —— 连接物理感知与 AI 记忆模型。我负责市场定位、0–1 开发核心功能「Highlights」、主导美 & 欧 Beta 用户访谈，并优化品牌身份。",
     tags_en: ["AI PM", "Product Design", "Hardware + App", "Branding", "User Research", "Beta Program"],
@@ -31,6 +31,10 @@ const PROJECTS = {
       { label_en: "Markets", label_zh: "市场", value_en: "US & EU Beta", value_zh: "美 & 欧 Beta" },
     ],
     nda: true,
+    heroButtons: [
+      { label_en: "Visit LUCI website", label_zh: "访问 LUCI 官网", url: "https://memories.ai/luci/", style: "dark" },
+      { label_en: "🔗 View PDF", label_zh: "🔗 查看 PDF", url: "https://drive.google.com/file/d/18_K5bmIR97BymcdhGoAd8xp2d-SSofTa/view?usp=sharing", style: "ghost" }
+    ],
     sections: [
       {
         type: "role-list",
@@ -39,19 +43,29 @@ const PROJECTS = {
         title_en: "Four pillars of product ownership.",
         title_zh: "四根产品支柱，由我负责。",
         items_en: [
-          "Defined LUCI AI's market positioning — the \"Personal Memory Companion\" identity.",
-          "0–1 developed the \"Highlights\" core feature for the App — from concept to spec.",
-          "Headed the US & EU Beta Interview Program — data-driven insights for the 0–1 product launch.",
-          "Defined core user scenarios (Daily Recap / To-do) to bridge hardware capability with AI memory models.",
-          "Strategically refined LUCI AI branding to align with \"Personal Memory Companion\" identity.",
+          "Defined LUCI AI's market positioning — \"Personal Memory Companion\" identity",
+          "0–1 developed the \"Highlights\" core feature for the App — from concept to spec",
+          "Headed the US & EU Beta Interview Program — delivering data-driven insights for the 0–1 product launch",
+          "Defined core user scenarios (Daily Recap / To-do) to bridge hardware capability with AI memory models",
+          "Strategically refined LUCI AI branding to align with \"Personal Memory Companion\" identity",
         ],
         items_zh: [
-          "定义 LUCI AI 的市场定位 ——「个人记忆伴侣」身份。",
-          "0–1 开发 App 核心功能「Highlights」—— 从概念到规格全流程。",
-          "主导美 & 欧 Beta 用户访谈项目 —— 为 0–1 上线提供数据驱动的洞察。",
-          "定义核心用户场景（每日回顾 / 待办），打通硬件能力与 AI 记忆模型。",
-          "战略性优化 LUCI AI 品牌，使之与「个人记忆伴侣」定位对齐。",
+          "定义 LUCI AI 的市场定位 ——「个人记忆伴侣」身份",
+          "0–1 开发 App 核心功能「Highlights」—— 从概念到规格全流程",
+          "主导美 & 欧 Beta 用户访谈项目 —— 为 0–1 上线提供数据驱动的洞察",
+          "定义核心用户场景（每日回顾 / 待办），打通硬件能力与 AI 记忆模型",
+          "战略性优化 LUCI AI 品牌，使之与「个人记忆伴侣」定位对齐",
         ],
+        ndaCard: {
+          label_en: "Due to NDA",
+          label_zh: "受 NDA 保护",
+          body_en: "Process screens, internal feature flows, and proprietary product specs are under NDA. This page covers public brand outcomes, strategic decisions, and research methodology.",
+          body_zh: "过程细节、内部功能流程与专有产品规格受 NDA 保护。本页仅展示公开的品牌成果、战略决策与研究方法。",
+          shareLabel_en: "What I can share",
+          shareLabel_zh: "可分享内容",
+          shareBody_en: "Brand identity · Market positioning strategy · User scenario framework · Research methodology · Impact results",
+          shareBody_zh: "品牌身份 · 市场定位策略 · 用户场景框架 · 研究方法 · 影响结果"
+        }
       },
       {
         type: "cards-3",
@@ -60,7 +74,7 @@ const PROJECTS = {
         title_en: "Bridging hardware capability with AI memory models.",
         title_zh: "打通硬件能力与 AI 记忆模型。",
         cards: [
-          { num_en: "Core Feature", num_zh: "核心功能", title_en: "Highlights", title_zh: "Highlights", body_en: "0–1 developed the \"Highlights\" feature — surfacing the most meaningful moments from LUCI's captured memories. I defined the feature concept, user flow, and interaction model that serves as the product's primary value delivery mechanism.", body_zh: "0–1 开发「Highlights」功能 —— 把 LUCI 捕捉到的记忆中最有意义的瞬间呈现出来。我定义了功能概念、用户流和交互模型，这是产品最核心的价值递送机制。" },
+          { num_en: "Core Feature", num_zh: "核心功能", title_en: "Highlights", title_zh: "Highlights", body_en: "0–1 developed the \"Highlights\" feature — surfacing the most meaningful moments from LUCI's captured memories. Defined the feature concept, user flow, and interaction model that serves as the product's primary value delivery mechanism.", body_zh: "0–1 开发「Highlights」功能 —— 把 LUCI 捕捉到的记忆中最有意义的瞬间呈现出来。定义了功能概念、用户流和交互模型，这是产品最核心的价值递送机制。" },
           { num_en: "Core Feature", num_zh: "核心功能", title_en: "Daily Recap", title_zh: "每日回顾", body_en: "Defined the Daily Recap user scenario — an end-of-day summary that bridges hardware capture with the AI memory model. Designed the information hierarchy and conversational flow for daily memory reflection.", body_zh: "定义「每日回顾」用户场景 —— 一天结束的总结，把硬件采集与 AI 记忆模型连接起来。设计了信息架构与对话流，用于每日记忆回顾。" },
           { num_en: "Core Feature", num_zh: "核心功能", title_en: "To-do Integration", title_zh: "待办整合", body_en: "Defined the To-do user scenario — connecting memory capture to actionable items. Bridging LUCI's hardware capability with the AI's ability to extract tasks from captured context.", body_zh: "定义「待办」用户场景 —— 把记忆捕捉与可执行事项连接起来。打通 LUCI 的硬件能力与 AI 从上下文中提取任务的能力。" },
         ],
@@ -73,10 +87,10 @@ const PROJECTS = {
         title_en: "Three scenarios. One continuous loop of memory and action.",
         title_zh: "三个场景，一个持续运转的「记忆 → 行动」回环。",
         items: [
-          { num: "01", title_en: "Daily Recap",         title_zh: "每日回顾",   body_en: "End-of-day AI summary of what LUCI captured. Transforms raw memory data into a meaningful narrative — helping users understand their day from the perspective of what they actually experienced.", body_zh: "一天结束时由 AI 总结 LUCI 所记录的内容。把原始记忆数据转化为有意义的叙事 —— 帮用户从「真正经历的事」的视角理解自己的一天。" },
-          { num: "02", title_en: "Highlights",          title_zh: "Highlights", body_en: "Algorithmically surfaced significant moments across time. The \"Highlights\" feature I developed 0–1 — using AI to identify which memories are most worth preserving and revisiting.", body_zh: "用算法浮现跨时间的重要时刻。我 0–1 开发的「Highlights」功能 —— 由 AI 判断哪些记忆最值得保留与回看。" },
-          { num: "03", title_en: "To-do from Memory",   title_zh: "记忆生待办", body_en: "AI extracts actionable items from captured context — bridging the passive memory capture of the hardware with the active task management needs of the user.", body_zh: "AI 从采集到的上下文中提取可执行事项 —— 把硬件被动记录与用户主动管理任务的需求连接起来。" },
-          { num: "★", title_en: "Beta Research — US & EU", title_zh: "Beta 调研 — 美 & 欧", body_en: "Headed the Beta Interview Program across US and EU markets. Synthesised qualitative insights into product decisions — data-driven inputs for the 0–1 launch strategy.", body_zh: "主导美国与欧洲两地的 Beta 用户访谈项目。把质性洞察提炼为产品决策 —— 为 0–1 上线策略提供数据输入。" },
+          { num: "01", title_en: "Daily Recap",         title_zh: "每日回顾",   body_en: "End-of-day AI summary of what LUCI captured. Transforms raw memory data into a meaningful narrative — helping users understand their day from the perspective of what they actually experienced.", body_zh: "一天结束时由 AI 总结 LUCI 所记录的内容。把原始记忆数据转化为有意义的叙事 —— 帮用户从「真正经历的事」的视角理解自己的一天。", tags_en: ["Memory Synthesis", "Daily Cadence"], tags_zh: ["记忆合成", "每日节奏"] },
+          { num: "02", title_en: "Highlights",          title_zh: "Highlights", body_en: "Algorithmically surfaced significant moments across time. The \"Highlights\" feature I developed 0–1 — using AI to identify which memories are most worth preserving and revisiting.", body_zh: "用算法浮现跨时间的重要时刻。我 0–1 开发的「Highlights」功能 —— 由 AI 判断哪些记忆最值得保留与回看。", tags_en: ["AI Curation", "Core Feature"], tags_zh: ["AI 策展", "核心功能"] },
+          { num: "03", title_en: "To-do from Memory",   title_zh: "记忆生待办", body_en: "AI extracts actionable items from captured context — bridging the passive memory capture of the hardware with the active task management needs of the user.", body_zh: "AI 从采集到的上下文中提取可执行事项 —— 把硬件被动记录与用户主动管理任务的需求连接起来。", tags_en: ["Action Extraction", "Productivity"], tags_zh: ["行动提取", "生产力"] },
+          { num: "★", title_en: "Beta Research — US & EU", title_zh: "Beta 调研 — 美 & 欧", body_en: "Headed the Beta Interview Program across US and EU markets. Synthesised qualitative insights into product decisions — data-driven inputs for the 0–1 launch strategy.", body_zh: "主导美国与欧洲两地的 Beta 用户访谈项目。把质性洞察提炼为产品决策 —— 为 0–1 上线策略提供数据输入。", tags_en: ["User Research", "Beta Programme", "US · EU"], tags_zh: ["用户研究", "Beta 项目", "美 · 欧"] },
         ],
       },
       {

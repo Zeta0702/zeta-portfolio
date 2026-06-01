@@ -224,16 +224,16 @@ function Footer({ go }) {
         </div>
         <div className="footer-col">
           <div className="footer-col-title"><T en="Elsewhere" zh="其 他 平 台" /></div>
-          <a>LinkedIn ↗</a>
-          <a>Instagram ↗</a>
-          <a>YouTube ↗</a>
-          <a>小红书 ↗</a>
-          <a>网易云音乐 ↗</a>
+          <a href="https://www.linkedin.com/in/zeta-zheng-65b580294" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+          <a href="https://www.instagram.com/zetazheng_0702" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
+          <a href="https://www.youtube.com/@zetazheng_0702" target="_blank" rel="noopener noreferrer">YouTube ↗</a>
+          <a href="https://www.xiaohongshu.com/user/profile/5a06ae22e8ac2b0a7b3537df" target="_blank" rel="noopener noreferrer">小红书 ↗</a>
+          <a href="https://music.163.com/#/artist?id=34422300" target="_blank" rel="noopener noreferrer">网易云音乐 ↗</a>
         </div>
         <div className="footer-col">
           <div className="footer-col-title"><T en="Get in touch" zh="联 系" /></div>
-          <a>chengzheng0702@gmail.com ↗</a>
-          <a>zhengcheng22@163.com ↗</a>
+          <a href="mailto:chengzheng0702@gmail.com">chengzheng0702@gmail.com ↗</a>
+          <a href="mailto:zhengcheng22@163.com">zhengcheng22@163.com ↗</a>
           <div className="text" style={{ fontSize: 13, color: "rgba(255,255,255,0.55)", lineHeight: 1.6, marginTop: 14 }}>
             <T
               en={<>Open to design partnerships<br />and AI product work.</>}

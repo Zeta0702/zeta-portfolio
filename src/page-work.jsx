@@ -4,7 +4,7 @@
 
 import React, { useState } from 'react';
 import { T, t } from './i18n';
-import { Reveal, CoverImage, ArrowGlyph, BigCTA, Footer, ProjectCard } from './components';
+import { Reveal, CoverImage, BigCTA, Footer, ProjectCard } from './components';
 
 const ERAS = [
   {
@@ -53,7 +53,7 @@ const ERAS = [
   },
 ];
 
-function WorkPage({ go, goProject }) {
+function WorkPage({ go }) {
   const [filter, setFilter] = useState("All");
   const allTags = ["All", "AI PM", "UX", "Brand", "Interaction", "Industrial"];
 
@@ -174,11 +174,8 @@ function WorkPage({ go, goProject }) {
                       />
                     </p>
                     <div style={{ display: "flex", flexWrap: "wrap", gap: 16, alignItems: "center" }}>
-                      <button className="btn btn-light" onClick={() => goProject(era.archiveSlug)}>
+                      <button className="btn btn-light" onClick={() => window.location.href = `/work-${era.archiveSlug}.html`}>
                         <T en="View archive →" zh="查看存档 →" />
-                      </button>
-                      <button className="btn-link" style={{ color: "var(--paper)", borderColor: "var(--paper)" }} onClick={() => goProject(era.archiveSlug)}>
-                        <T en="🔗 View as detail page" zh="🔗 查看详情页" /> <span className="arrow"><ArrowGlyph size={12} /></span>
                       </button>
                     </div>
 
@@ -207,9 +204,10 @@ function WorkPage({ go, goProject }) {
                       role: t(p.role_en, p.role_zh), img: t(p.img_en, p.img_zh),
                       tone: p.tone, tags: p.tags, image: p.image,
                     };
+                    const onClick = () => window.location.href = `/work-${p.slug}.html`;
                     return (
                       <Reveal key={p.title} delay={i * 100}>
-                        <ProjectCard project={card} index={`0${i + 1}`} onClick={() => goProject(p.slug)} />
+                        <ProjectCard project={card} index={`0${i + 1}`} onClick={onClick} />
                       </Reveal>
                     );
                   })}

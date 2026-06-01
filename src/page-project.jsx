@@ -11,6 +11,21 @@ import { PROJECTS } from './project-data';
 function pickArr(en, zh, lang) { return (lang === "zh" && zh) ? zh : en; }
 function pickStr(en, zh, lang) { return (lang === "zh" && zh != null) ? zh : en; }
 
+/* ---------- NDA Card ---------- */
+function NdaCard({ card }) {
+  const { lang } = useLang();
+  return (
+    <div className="pd-nda-card">
+      <div className="pd-nda-label">{pickStr(card.label_en, card.label_zh, lang)}</div>
+      <p className="pd-nda-body">{pickStr(card.body_en, card.body_zh, lang)}</p>
+      <div className="pd-nda-share">
+        <div className="pd-nda-share-label">{pickStr(card.shareLabel_en, card.shareLabel_zh, lang)}</div>
+        <p className="pd-nda-share-body">{pickStr(card.shareBody_en, card.shareBody_zh, lang)}</p>
+      </div>
+    </div>
+  );
+}
+
 /* ---------- Pieces ---------- */
 function RoleList({ items_en, items_zh }) {
   const { lang } = useLang();
@@ -51,6 +66,13 @@ function ScenariosBlock({ items }) {
           <div className="pd-scenario-num">{s.num}</div>
           <div className="pd-scenario-title">{pickStr(s.title_en, s.title_zh, lang)}</div>
           <div className="pd-scenario-body">{pickStr(s.body_en, s.body_zh, lang)}</div>
+          {s.tags_en && (
+            <div className="pd-scenario-tags">
+              {pickArr(s.tags_en, s.tags_zh, lang).map(t => (
+                <span key={t} className="pd-scenario-tag">{t}</span>
+              ))}
+            </div>
+          )}
         </div>
       ))}
     </div>
@@ -282,21 +304,34 @@ function ProjectSection({ section, goProject }) {
 
         {section.type === "role-list" && (
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, marginTop: 32 }}>
-            <Reveal delay={120}>
-              {intro && (
-                <p style={{ fontSize: 16, lineHeight: 1.65, color: section.bg === "ink" ? "rgba(255,255,255,0.65)" : "var(--ink-mid)", maxWidth: 540 }}>
-                  {intro}
-                </p>
-              )}
-              {section.ctaSlug && (
-                <button className={section.bg === "ink" ? "btn btn-light" : "btn btn-ghost"} style={{ marginTop: 24 }} onClick={() => goProject(section.ctaSlug)}>
-                  {pickStr(section.cta_en, section.cta_zh, lang)} <span className="arrow"><ArrowGlyph size={12} /></span>
-                </button>
-              )}
-            </Reveal>
-            <Reveal delay={200}>
-              <RoleList items_en={section.items_en} items_zh={section.items_zh} />
-            </Reveal>
+            {section.ndaCard ? (
+              <>
+                <Reveal delay={120}>
+                  <RoleList items_en={section.items_en} items_zh={section.items_zh} />
+                </Reveal>
+                <Reveal delay={200}>
+                  <NdaCard card={section.ndaCard} />
+                </Reveal>
+              </>
+            ) : (
+              <>
+                <Reveal delay={120}>
+                  {intro && (
+                    <p style={{ fontSize: 16, lineHeight: 1.65, color: section.bg === "ink" ? "rgba(255,255,255,0.65)" : "var(--ink-mid)", maxWidth: 540 }}>
+                      {intro}
+                    </p>
+                  )}
+                  {section.ctaSlug && (
+                    <button className={section.bg === "ink" ? "btn btn-light" : "btn btn-ghost"} style={{ marginTop: 24 }} onClick={() => goProject(section.ctaSlug)}>
+                      {pickStr(section.cta_en, section.cta_zh, lang)} <span className="arrow"><ArrowGlyph size={12} /></span>
+                    </button>
+                  )}
+                </Reveal>
+                <Reveal delay={200}>
+                  <RoleList items_en={section.items_en} items_zh={section.items_zh} />
+                </Reveal>
+              </>
+            )}
           </div>
         )}
 
@@ -468,6 +503,25 @@ function ProjectPage({ slug, go, goProject }) {
                 ))}
               </div>
             </Reveal>
+            {p.heroButtons && (
+              <Reveal delay={520}>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginTop: 28 }}>
+                  {p.heroButtons.map((btn, i) => (
+                    <a
+                      key={i}
+                      href={btn.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={btn.style === "dark" ? "btn btn-dark" : "btn btn-ghost"}
+                      style={{ fontSize: 13, padding: "10px 18px" }}
+                    >
+                      {pickStr(btn.label_en, btn.label_zh, lang)}
+                      {btn.style === "dark" && <span className="arrow"><ArrowGlyph size={12} /></span>}
+                    </a>
+                  ))}
+                </div>
+              </Reveal>
+            )}
           </div>
 
           <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>

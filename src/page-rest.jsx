@@ -115,7 +115,7 @@ const CHAPTERS = [
   },
 ];
 
-function AboutPage({ go }) {
+function AboutPage({ go, goBlogPost }) {
   return (
     <main className="page-root" data-screen-label="About">
 
@@ -160,8 +160,13 @@ function AboutPage({ go }) {
         </div>
 
         <Reveal delay={400}>
-          <div style={{ fontFamily: "var(--font-serif)", fontStyle: "italic", fontSize: "clamp(20px, 2.2vw, 28px)", color: "var(--ink-mid)", marginBottom: 32, paddingLeft: 24, borderLeft: "2px solid var(--blue)" }}>
-            <T en="Product Thinking: Why is Zeta ?" zh="产品思维：为什么是 Zeta ？" />
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: 24, marginBottom: 32 }}>
+            <div style={{ fontFamily: "var(--font-serif)", fontStyle: "italic", fontSize: "clamp(20px, 2.2vw, 28px)", color: "var(--ink-mid)", paddingLeft: 24, borderLeft: "2px solid var(--blue)", flex: 1, minWidth: 260 }}>
+              <T en="Product Thinking: Why is Zeta ?" zh="产品思维：为什么是 Zeta ？" />
+            </div>
+            <button className="btn-link" onClick={() => goBlogPost && goBlogPost("from-spotlight-to-highlands")}>
+              <T en="Know her story" zh="了解她的故事" /> <span className="arrow"><ArrowGlyph size={11} /></span>
+            </button>
           </div>
         </Reveal>
 
@@ -236,26 +241,28 @@ function AboutPage({ go }) {
           {/* Social cards */}
           <div style={{ marginTop: 64, display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16 }}>
             {[
-              { name: "网易云音乐", handle_en: "Music · covers", handle_zh: "翻唱", img_en: "Sing / Music", img_zh: "唱歌 / 音乐", tone: "mono", link: t("Go to NetEase Music ↗", "跳转网易云 ↗") },
-              { name: "YouTube", handle_en: "Channel · @zetazheng_0702", handle_zh: "频道 · @zetazheng_0702", img_en: "Performance video", img_zh: "表演视频", tone: "mono-blue", link: t("Go to YouTube ↗", "跳转 YouTube ↗") },
-              { name: "小红书", handle_en: "@郑泽塔 · more expression", handle_zh: "@郑泽塔 · 更多自我表达", img_en: "Daily expression", img_zh: "日常表达", tone: "mono-mist", link: t("Go to xiaohongshu ↗", "跳转小红书 ↗") }
+              { name: "网易云音乐", handle_en: "Music · covers", handle_zh: "翻唱", img_en: "Sing / Music", img_zh: "唱歌 / 音乐", tone: "mono", link: t("Go to NetEase Music ↗", "跳转网易云 ↗"), url: "https://music.163.com/#/artist?id=34422300" },
+              { name: "YouTube", handle_en: "Channel · @zetazheng_0702", handle_zh: "频道 · @zetazheng_0702", img_en: "Performance video", img_zh: "表演视频", tone: "mono-blue", link: t("Go to YouTube ↗", "跳转 YouTube ↗"), url: "https://www.youtube.com/@zetazheng_0702" },
+              { name: "小红书", handle_en: "@郑泽塔 · more expression", handle_zh: "@郑泽塔 · 更多自我表达", img_en: "Daily expression", img_zh: "日常表达", tone: "mono-mist", link: t("Go to xiaohongshu ↗", "跳转小红书 ↗"), url: "https://www.xiaohongshu.com/user/profile/5a06ae22e8ac2b0a7b3537df" }
             ].map((s, i) =>
               <Reveal key={s.name} delay={i * 90}>
-                <div className="social-card" style={{ background: "rgba(255,255,255,0.04)", borderColor: "rgba(255,255,255,0.25)", color: "var(--paper)", borderStyle: "none" }}>
-                  <div className="sc-image" style={{ borderColor: "rgba(255,255,255,0.25)" }}>
-                    <Placeholder label={t(s.img_en, s.img_zh)} tone={s.tone} />
-                  </div>
-                  <div className="sc-meta" style={{ flexDirection: "column", alignItems: "stretch", gap: 6, borderStyle: "none" }}>
-                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: 12 }}>
-                      <div className="sc-name" style={{ color: "var(--paper)" }}>{s.name}</div>
-                      <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--steel)" }}>0{i + 1}</div>
+                <a href={s.url} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>
+                  <div className="social-card" style={{ background: "rgba(255,255,255,0.04)", borderColor: "rgba(255,255,255,0.25)", color: "var(--paper)", borderStyle: "none" }}>
+                    <div className="sc-image" style={{ borderColor: "rgba(255,255,255,0.25)" }}>
+                      <Placeholder label={t(s.img_en, s.img_zh)} tone={s.tone} />
                     </div>
-                    <div className="sc-handle" style={{ color: "rgba(255,255,255,0.6)" }}>
-                      <T en={s.handle_en} zh={s.handle_zh} />
+                    <div className="sc-meta" style={{ flexDirection: "column", alignItems: "stretch", gap: 6, borderStyle: "none" }}>
+                      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: 12 }}>
+                        <div className="sc-name" style={{ color: "var(--paper)" }}>{s.name}</div>
+                        <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--steel)" }}>0{i + 1}</div>
+                      </div>
+                      <div className="sc-handle" style={{ color: "rgba(255,255,255,0.6)" }}>
+                        <T en={s.handle_en} zh={s.handle_zh} />
+                      </div>
+                      <div style={{ fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.08em", color: "var(--steel)", marginTop: 8, textTransform: "uppercase" }}>{s.link}</div>
                     </div>
-                    <div style={{ fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.08em", color: "var(--steel)", marginTop: 8, textTransform: "uppercase" }}>{s.link}</div>
                   </div>
-                </div>
+                </a>
               </Reveal>
             )}
           </div>
@@ -488,7 +495,7 @@ function CVPage({ go }) {
               </p>
               <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
                 <button className="btn btn-dark">↓ <T en="CV.pdf" zh="CV.pdf" /></button>
-                <button className="btn btn-ghost">LinkedIn ↗</button>
+                <a href="https://www.linkedin.com/in/zeta-zheng-65b580294" target="_blank" rel="noopener noreferrer" className="btn btn-ghost">LinkedIn ↗</a>
                 <button className="btn btn-ghost">hello@zetazheng.com</button>
               </div>
             </div>
@@ -865,14 +872,6 @@ function BlogPostPage({ go }) {
             <T en="Epilogue · A future yet to be written" zh="尾声 · 一个尚未书写的未来" />
           </div></Reveal>
           <div style={{ marginTop: 48 }}>
-            <Reveal clip>
-              <h2 className="display-xl" style={{ color: "var(--paper)" }}>
-                <T
-                  en={<>Looking back on these <span className="serif-italic" style={{ color: "var(--steel)" }}>25</span> years,</>}
-                  zh={<>回望这 <span className="serif-italic" style={{ color: "var(--steel)" }}>25</span> 年，</>}
-                />
-              </h2>
-            </Reveal>
             <Reveal clip delay={140}>
               <h2 className="display-xl" style={{ color: "var(--paper)" }}>
                 <T
@@ -922,12 +921,12 @@ function BlogPostPage({ go }) {
 /* ============== CONTACT ============== */
 function ContactPage({ go }) {
   const items = [
-    { label_en: "Email",      label_zh: "邮 箱",       value: "chengzheng0702@gmail.com ↗" },
-    { label_en: "Email",      label_zh: "邮 箱",       value: "zhengcheng22@163.com ↗" },
-    { label_en: "LinkedIn",   label_zh: "领 英",       value: "@Zeta(Cheng) Zheng ↗" },
-    { label_en: "YouTube",    label_zh: "Y o u T u b e", value: "@zetazheng_0702 ↗" },
-    { label_en: "Instagram",  label_zh: "I n s",        value: "@zetazheng_0702 ↗" },
-    { label_en: "小红书",      label_zh: "小 红 书",     value: "郑泽塔 ↗" },
+    { label_en: "Email",      label_zh: "邮 箱",       value: "chengzheng0702@gmail.com ↗", href: "mailto:chengzheng0702@gmail.com" },
+    { label_en: "Email",      label_zh: "邮 箱",       value: "zhengcheng22@163.com ↗", href: "mailto:zhengcheng22@163.com" },
+    { label_en: "LinkedIn",   label_zh: "领 英",       value: "@Zeta(Cheng) Zheng ↗", href: "https://www.linkedin.com/in/zeta-zheng-65b580294" },
+    { label_en: "YouTube",    label_zh: "Y o u T u b e", value: "@zetazheng_0702 ↗", href: "https://www.youtube.com/@zetazheng_0702" },
+    { label_en: "Instagram",  label_zh: "I n s",        value: "@zetazheng_0702 ↗", href: "https://www.instagram.com/zetazheng_0702" },
+    { label_en: "小红书",      label_zh: "小 红 书",     value: "郑泽塔 ↗", href: "https://www.xiaohongshu.com/user/profile/5a06ae22e8ac2b0a7b3537df" },
   ];
   return (
     <main className="page-root" data-screen-label="Contact">
@@ -966,23 +965,31 @@ function ContactPage({ go }) {
 
             <Reveal delay={400}>
               <div style={{ marginTop: 64, display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 0, borderTop: "1px solid var(--ink)", borderLeft: "1px solid var(--ink)" }}>
-                {items.map((r, i) => (
-                  <div key={i} style={{
-                    padding: "24px 28px",
-                    borderRight: "1px solid var(--ink)",
-                    borderBottom: "1px solid var(--ink)",
-                    cursor: "pointer",
-                    transition: "background 200ms",
-                  }} onMouseEnter={e => e.currentTarget.style.background = "var(--mist)"}
-                     onMouseLeave={e => e.currentTarget.style.background = "transparent"}>
-                    <div className="tracked-sm" style={{ marginBottom: 10 }}>
-                      <T en={r.label_en} zh={r.label_zh} />
-                    </div>
-                    <div style={{ fontFamily: "var(--font-display)", fontSize: 17, fontWeight: 500, letterSpacing: "-0.01em" }}>
-                      {r.value}
-                    </div>
-                  </div>
-                ))}
+                {items.map((r, i) => {
+                  const isMail = r.href.startsWith("mailto:");
+                  const linkProps = isMail
+                    ? { href: r.href }
+                    : { href: r.href, target: "_blank", rel: "noopener noreferrer" };
+                  return (
+                    <a key={i} {...linkProps} style={{
+                      padding: "24px 28px",
+                      borderRight: "1px solid var(--ink)",
+                      borderBottom: "1px solid var(--ink)",
+                      cursor: "pointer",
+                      transition: "background 200ms",
+                      textDecoration: "none",
+                      color: "inherit",
+                    }} onMouseEnter={e => e.currentTarget.style.background = "var(--mist)"}
+                       onMouseLeave={e => e.currentTarget.style.background = "transparent"}>
+                      <div className="tracked-sm" style={{ marginBottom: 10 }}>
+                        <T en={r.label_en} zh={r.label_zh} />
+                      </div>
+                      <div style={{ fontFamily: "var(--font-display)", fontSize: 17, fontWeight: 500, letterSpacing: "-0.01em" }}>
+                        {r.value}
+                      </div>
+                    </a>
+                  );
+                })}
               </div>
             </Reveal>
           </div>

@@ -66,14 +66,14 @@ function App() {
 
   let pageNode;
   switch (state.route) {
-    case "work":     pageNode = <WorkPage    go={go} goProject={goProject} />; break;
-    case "about":    pageNode = <AboutPage   go={go} />; break;
+    case "work":     pageNode = <WorkPage    go={go} />; break;
+    case "about":    pageNode = <AboutPage   go={go} goBlogPost={goBlogPost} />; break;
     case "cv":       pageNode = <CVPage      go={go} />; break;
     case "blog":     pageNode = <BlogPage    go={go} goBlogPost={goBlogPost} />; break;
     case "contact":  pageNode = <ContactPage go={go} />; break;
     case "project":  pageNode = <ProjectPage slug={state.slug} go={go} goProject={goProject} />; break;
     case "blogpost": pageNode = <BlogPostPage go={go} slug={state.slug} />; break;
-    default:         pageNode = <HomePage    go={go} goProject={goProject} />;
+    default:         pageNode = <HomePage    go={go} />;
   }
 
   return (
