@@ -96,18 +96,38 @@ function Placeholder({ label, sub, tone = "steel", grain = false }) {
 /* ---------- CoverImage — real photo, or striped placeholder if src is empty ----------
    Example: <CoverImage src="images/home/hero-zc72.jpg" alt="Zeta portrait" />
 */
-function CoverImage({ src, alt = "", label, sub, tone = "steel", grain = false, fit = "cover" }) {
+function CoverImage({ src, alt = "", label, sub, tone = "steel", grain = false, fit = "cover", position, offsetX, offsetY }) {
+  const [currentSrc, setCurrentSrc] = useState(src);
   const [failed, setFailed] = useState(false);
+
   if (!src || failed) return <Placeholder label={label} sub={sub} tone={tone} grain={grain} />;
+
+  function handleError() {
+    if (currentSrc.endsWith('.jpg')) {
+      setCurrentSrc(currentSrc.replace(/\.jpg$/, '.png'));
+    } else if (currentSrc.endsWith('.png')) {
+      setCurrentSrc(currentSrc.replace(/\.png$/, '.jpg'));
+    } else {
+      setFailed(true);
+    }
+  }
+
   return (
     <div className="cover-image">
       <img
-        src={src}
+        src={currentSrc}
         alt={alt || label || ""}
-        style={{ objectFit: fit }}
+        style={{
+          objectFit: fit,
+          objectPosition: position,
+          width: (offsetX || offsetY) ? '130%' : '100%',
+          height: (offsetX || offsetY) ? '130%' : '100%',
+          marginLeft: offsetX || 0,
+          marginTop: offsetY || 0,
+        }}
         loading="lazy"
         decoding="async"
-        onError={() => setFailed(true)}
+        onError={handleError}
       />
       {(label || sub) && (
         <div className="cover-image-label">
@@ -136,6 +156,9 @@ function ProjectCard({ project, index, onClick }) {
           label={project.img}
           sub={project.year}
           tone={project.tone || "steel"}
+          position={project.position}
+          offsetX={project.offsetX}
+          offsetY={project.offsetY}
         />
       </div>
       <div className="meta">

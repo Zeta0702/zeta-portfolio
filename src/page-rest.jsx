@@ -194,10 +194,10 @@ function AboutPage({ go, goBlogPost }) {
       <section style={{ padding: "0 32px 96px" }}>
         <Reveal>
           <div style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr 1fr 1.2fr", gap: 12, height: "56vh", minHeight: 420 }}>
-            <div><Placeholder label={t("Portrait · Zeta", "肖像 · Zeta")} sub="01 / 04" tone="mono" /></div>
-            <div><Placeholder label={t("Photography · still", "摄影 · 静物")} sub="02 / 04" tone="mono-blue" /></div>
-            <div><Placeholder label={t("Performance · stage", "表演 · 舞台")} sub="03 / 04" tone="steel" /></div>
-            <div><Placeholder label={t("Lab · Creativity", "实验 · 创造")} sub="04 / 04" tone="mono-mist" /></div>
+            <div><CoverImage src="images/about/photo-portrait.jpg" label={t("Portrait · Zeta", "肖像 · Zeta")} sub="01 / 04" tone="mono" /></div>
+            <div><CoverImage src="images/about/photo-still.jpg" label={t("Photography · still", "摄影 · 静物")} sub="02 / 04" tone="mono-blue" /></div>
+            <div><CoverImage src="images/about/photo-performance.jpg" label={t("Performance · stage", "表演 · 舞台")} sub="03 / 04" tone="steel" /></div>
+            <div><CoverImage src="images/about/photo-lab.jpg" label={t("Lab · Creativity", "实验 · 创造")} sub="04 / 04" tone="mono-mist" /></div>
           </div>
         </Reveal>
       </section>
@@ -241,15 +241,15 @@ function AboutPage({ go, goBlogPost }) {
           {/* Social cards */}
           <div style={{ marginTop: 64, display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16 }}>
             {[
-              { name: "网易云音乐", handle_en: "Music · covers", handle_zh: "翻唱", img_en: "Sing / Music", img_zh: "唱歌 / 音乐", tone: "mono", link: t("Go to NetEase Music ↗", "跳转网易云 ↗"), url: "https://music.163.com/#/artist?id=34422300" },
-              { name: "YouTube", handle_en: "Channel · @zetazheng_0702", handle_zh: "频道 · @zetazheng_0702", img_en: "Performance video", img_zh: "表演视频", tone: "mono-blue", link: t("Go to YouTube ↗", "跳转 YouTube ↗"), url: "https://www.youtube.com/@zetazheng_0702" },
-              { name: "小红书", handle_en: "@郑泽塔 · more expression", handle_zh: "@郑泽塔 · 更多自我表达", img_en: "Daily expression", img_zh: "日常表达", tone: "mono-mist", link: t("Go to xiaohongshu ↗", "跳转小红书 ↗"), url: "https://www.xiaohongshu.com/user/profile/5a06ae22e8ac2b0a7b3537df" }
+              { name: "网易云音乐", handle_en: "Music · covers", handle_zh: "翻唱", img_en: "Sing / Music", img_zh: "唱歌 / 音乐", imgSrc: "images/about/social-music.jpg", tone: "mono", link: t("Go to NetEase Music ↗", "跳转网易云 ↗"), url: "https://music.163.com/#/artist?id=34422300" },
+              { name: "YouTube", handle_en: "Channel · @zetazheng_0702", handle_zh: "频道 · @zetazheng_0702", img_en: "Performance video", img_zh: "表演视频", imgSrc: "images/about/social-youtube.jpg", tone: "mono-blue", link: t("Go to YouTube ↗", "跳转 YouTube ↗"), url: "https://www.youtube.com/@zetazheng_0702" },
+              { name: "小红书", handle_en: "@郑泽塔 · more expression", handle_zh: "@郑泽塔 · 更多自我表达", img_en: "Daily expression", img_zh: "日常表达", imgSrc: "images/about/social-xhs.jpg", tone: "mono-mist", link: t("Go to xiaohongshu ↗", "跳转小红书 ↗"), url: "https://www.xiaohongshu.com/user/profile/5a06ae22e8ac2b0a7b3537df" }
             ].map((s, i) =>
               <Reveal key={s.name} delay={i * 90}>
                 <a href={s.url} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}>
                   <div className="social-card" style={{ background: "rgba(255,255,255,0.04)", borderColor: "rgba(255,255,255,0.25)", color: "var(--paper)", borderStyle: "none" }}>
                     <div className="sc-image" style={{ borderColor: "rgba(255,255,255,0.25)" }}>
-                      <Placeholder label={t(s.img_en, s.img_zh)} tone={s.tone} />
+                      <CoverImage src={s.imgSrc} label={t(s.img_en, s.img_zh)} tone={s.tone} />
                     </div>
                     <div className="sc-meta" style={{ flexDirection: "column", alignItems: "stretch", gap: 6, borderStyle: "none" }}>
                       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", gap: 12 }}>
@@ -496,7 +496,7 @@ function CVPage({ go }) {
               <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
                 <button className="btn btn-dark">↓ <T en="CV.pdf" zh="CV.pdf" /></button>
                 <a href="https://www.linkedin.com/in/zeta-zheng-65b580294" target="_blank" rel="noopener noreferrer" className="btn btn-ghost">LinkedIn ↗</a>
-                <button className="btn btn-ghost">hello@zetazheng.com</button>
+                <button className="btn btn-ghost">chengzheng0702@gmail.com</button>
               </div>
             </div>
           </Reveal>
@@ -625,7 +625,7 @@ function BlogPage({ go, goBlogPost }) {
         <Reveal>
           <div className="edge-row" style={{ borderTop: "none", marginBottom: 56 }}>
             <span><T en="Index · 005 — Blog / Journal" zh="索引 · 005 — 博 客" /></span>
-            <span><T en="1 essay · more coming" zh="1 篇文章 · 更 多 即 将 上 线" /></span>
+            <span><T en="1 blog · more coming" zh="1 篇文章 · 更 多 即 将 上 线" /></span>
             <span><T en="Slow writing, recording memory" zh="缓 慢 的 写 作 · 记 录 记 忆" /></span>
           </div>
         </Reveal>
@@ -649,7 +649,7 @@ function BlogPage({ go, goBlogPost }) {
               </div>
               <p style={{ fontSize: 16, color: "var(--ink-mid)", lineHeight: 1.55 }}>
                 <T
-                  en="Slow essays on design, AI, and self-growth — keep thinking, keep expressing."
+                  en="Slow blogs on design, AI, and self-growth — keep thinking, keep expressing."
                   zh="关于设计、AI 与自我成长的缓慢写作 —— 持续思考，持续表达。"
                 />
               </p>
@@ -691,12 +691,12 @@ function BlogPage({ go, goBlogPost }) {
                     <T en={featured.excerpt_en} zh={featured.excerpt_zh} />
                   </p>
                   <button className="btn btn-dark" onClick={openFeatured}>
-                    <T en="Read essay" zh="阅读全文" /> <span className="arrow"><ArrowGlyph size={12} /></span>
+                    <T en="Read blog" zh="阅读全文" /> <span className="arrow"><ArrowGlyph size={12} /></span>
                   </button>
                 </div>
               </div>
               <div style={{ position: "relative" }}>
-                <Placeholder label={t("Cover · 20 years", "封面 · 二十年")} sub={t("Two portraits, one arc", "两张肖像，一段弧线")} tone="mono" />
+                <CoverImage src="images/blog/cover-20-years.jpg" label={t("Cover · 20 years", "封面 · 二十年")} sub={t("Two portraits, one arc", "两张肖像，一段弧线")} tone="mono" />
               </div>
             </div>
           </article>
@@ -750,7 +750,7 @@ function BlogPostPage({ go }) {
             </span>
             <span>2024.12 · <T en="8 min" zh="8 分钟" /></span>
             <span style={{ color: "var(--ink)", cursor: "pointer" }} onClick={() => go("blog")}>
-              <T en="← All essays" zh="← 全部文章" />
+              <T en="← All blogs" zh="← 全部文章" />
             </span>
           </div>
         </Reveal>
@@ -790,7 +790,7 @@ function BlogPostPage({ go }) {
 
           <Reveal delay={300}>
             <div style={{ aspectRatio: "4/5" }}>
-              <Placeholder label={t("Cover · 2 portraits", "封面 · 两张肖像")} sub={t("2004 ———— 2024", "2004 ———— 2024")} tone="mono" />
+              <CoverImage src="images/blog/cover-2-portraits.jpg" label={t("Cover · 2 portraits", "封面 · 两张肖像")} sub={t("2004 ———— 2024", "2004 ———— 2024")} tone="mono" />
             </div>
           </Reveal>
         </div>
@@ -905,7 +905,7 @@ function BlogPostPage({ go }) {
                   <T en="View the work" zh="查看作品" /> <span className="arrow"><ArrowGlyph size={12} /></span>
                 </button>
                 <button className="btn-link" style={{ color: "var(--paper)", borderColor: "var(--paper)" }} onClick={() => go("blog")}>
-                  <T en="← All essays" zh="← 全部文章" />
+                  <T en="← All blogs" zh="← 全部文章" />
                 </button>
               </div>
             </Reveal>

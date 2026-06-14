@@ -7,7 +7,7 @@ import React from 'react';
 import { T, t } from './i18n';
 import { Reveal, CoverImage, ArrowGlyph, BigCTA, Footer } from './components';
 
-function HomePage({ go }) {
+function HomePage({ go, goProject }) {
   return (
     <main className="page-root" data-screen-label="Home">
 
@@ -124,7 +124,7 @@ function HomePage({ go }) {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
           {[
           {
-            era: "25 — now", slug: "luci-ai", href: "/work-memories-ai.html",
+            era: "25 — now", slug: "luci-ai", projectSlug: "memories-ai",
             title_en: "Building AI Product",
             title_zh: "构建 AI 产品",
             count_en: "3 projects",
@@ -133,7 +133,7 @@ function HomePage({ go }) {
             tone: "mono"
           },
           {
-            era: "23 — 24", slug: "emosync", href: "/work-emosync.html",
+            era: "23 — 24", slug: "emosync", projectSlug: "emosync",
             title_en: "Studying Interaction",
             title_zh: "学习交互设计",
             count_en: "2 projects",
@@ -142,7 +142,7 @@ function HomePage({ go }) {
             tone: "mono-blue"
           },
           {
-            era: "21 — 23", slug: "archive-21-23", href: "/work-archive-21-23.html",
+            era: "21 — 23", slug: "archive-21-23", projectSlug: "archive-21-23",
             title_en: "Shaping Portfolio",
             title_zh: "塑造作品集",
             count_en: "5 projects · PDF",
@@ -152,7 +152,7 @@ function HomePage({ go }) {
           }].
           map((e, i) =>
           <Reveal key={e.era} delay={i * 100}>
-              <article onClick={() => window.location.href = e.href} style={{ cursor: "pointer", display: "flex", flexDirection: "column" }}>
+              <article onClick={() => goProject(e.projectSlug)} style={{ cursor: "pointer", display: "flex", flexDirection: "column" }}>
                 <div style={{ aspectRatio: "4 / 5", position: "relative" }}>
                   <CoverImage src={`images/home/era-${e.slug}.png`} label={e.era} sub={t(e.title_en, e.title_zh)} tone={e.tone} />
                 </div>
@@ -349,7 +349,7 @@ function HomePage({ go }) {
                 </div>
                 <p style={{ marginTop: 32, fontSize: 16, color: "var(--ink-mid)", lineHeight: 1.55, maxWidth: 480 }}>
                   <T
-                    en={<>Featured essay: <span className="serif-italic">From the Spotlight to the Highlands — 20 Years of Becoming.</span> Slow writing on design, AI, performance and the long quiet projects.</>}
+                    en={<>Featured blog: <span className="serif-italic">From the Spotlight to the Highlands — 20 Years of Becoming.</span> Slow writing on design, AI, performance and the long quiet projects.</>}
                     zh={<>精选文章：<span className="serif-italic">《From the Spotlight to the Highlands — 20 Years of Becoming》</span>。关于设计、AI、表演，以及那些缓慢而安静的项目。</>} />
                   
                 </p>
