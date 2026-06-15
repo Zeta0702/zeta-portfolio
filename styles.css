@@ -1377,60 +1377,108 @@ img { display: block; max-width: 100%; }
 }
 
 /* =========================================
-   Mobile Overlay — Desktop only
+   Screen Gate — Desktop / Tablet only
    ========================================= */
 
-#mobile-overlay {
-  display: none;
-}
+#screen-gate { display: none; }
 
 @media (max-width: 768px) {
-  #root {
-    display: none !important;
-  }
+  #root { display: none !important; }
+  body:has(#screen-gate) { overflow: hidden; }
 
-  #mobile-overlay {
+  #screen-gate {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     position: fixed;
     inset: 0;
-    background: var(--ink);
+    background: var(--paper);
     z-index: 99999;
-    padding: 32px;
-  }
-
-  .mo-inner {
-    text-align: center;
-    color: var(--paper);
-  }
-
-  .mo-icon {
-    font-size: 48px;
-    margin-bottom: 24px;
-  }
-
-  .mo-title {
-    font-family: var(--font-display);
-    font-size: 24px;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    margin-bottom: 16px;
-  }
-
-  .mo-body {
+    padding: 48px 36px;
     font-family: var(--font-body);
+    color: var(--ink);
+    text-align: center;
+  }
+
+  .sg-edge {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  .sg-top { align-self: flex-start; }
+  .sg-bottom { align-self: flex-end; }
+
+  .sg-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 420px;
+    width: 100%;
+    gap: 24px;
+  }
+
+  .sg-icon {
+    width: 140px;
+    height: auto;
+    margin-bottom: 8px;
+  }
+
+  .sg-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--ink-mid);
+  }
+
+  .sg-title {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(28px, 8vw, 48px);
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+    color: var(--ink);
+  }
+  .sg-title .em {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--steel);
+  }
+
+  .sg-lede {
     font-size: 14px;
     line-height: 1.6;
-    color: rgba(255,255,255,0.7);
-    margin-bottom: 16px;
+    color: var(--ink-mid);
+    max-width: 320px;
   }
 
-  .mo-zh {
-    font-family: var(--font-body);
+  .sg-rule {
+    width: 40px;
+    height: 1px;
+    background: var(--line);
+  }
+
+  .sg-zh {
     font-size: 13px;
     line-height: 1.7;
-    color: rgba(255,255,255,0.5);
+    color: var(--ink-soft);
+    max-width: 320px;
+  }
+
+  .sg-sig {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 14px;
+    color: var(--ink-mid);
+    letter-spacing: 0;
+    text-transform: none;
   }
 }
 

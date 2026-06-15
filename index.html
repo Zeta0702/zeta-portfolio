@@ -12,19 +12,24 @@
   <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
-  <div id="mobile-overlay">
-    <div class="mo-inner">
-      <div class="mo-icon">💻</div>
-      <div class="mo-title">Desktop Only</div>
-      <div class="mo-body">
-        This site is designed for desktop browsers.<br/>
-        Please view on a laptop or desktop for the best experience.
-      </div>
-      <div class="mo-zh">
-        本网站专为桌面端浏览器设计，<br/>
-        请使用电脑访问以获得最佳体验。
-      </div>
+  <div id="screen-gate" aria-hidden="true">
+    <div class="sg-edge sg-top"><span>Zeta · ZC72</span><span>Editorial Performance</span></div>
+    <div class="sg-card">
+      <svg class="sg-icon" viewBox="0 0 140 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="14" y="20" width="74" height="46" rx="3" stroke="#000" stroke-width="2.5"/>
+        <rect x="22" y="28" width="58" height="30" rx="1.5" fill="#DFEBF8"/>
+        <path d="M6 74 H96 L92 82 H10 Z" stroke="#000" stroke-width="2.5" stroke-linejoin="round"/>
+        <rect x="92" y="40" width="44" height="34" rx="3.5" stroke="#000" stroke-width="2.5"/>
+        <rect x="98" y="46" width="32" height="22" rx="1.5" fill="#85B3E4"/>
+        <circle cx="133.5" cy="57" r="1.4" fill="#000"/>
+      </svg>
+      <div class="sg-eyebrow">Screen Size Restricted</div>
+      <h1 class="sg-title">Built for the<br><span class="em">bigger</span> screen.</h1>
+      <p class="sg-lede">To fully experience this site, please open it on a desktop or tablet. Mobile web view is temporarily unsupported.</p>
+      <div class="sg-rule"></div>
+      <p class="sg-zh">为了保证完整的功能与视觉呈现，本网站暂不支持手机端。<br>请用电脑或平板打开链接。</p>
     </div>
+    <div class="sg-edge sg-bottom"><span class="sg-sig">Zeta</span><span>Desktop / Tablet</span></div>
   </div>
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
