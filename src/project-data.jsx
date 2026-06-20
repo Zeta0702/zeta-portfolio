@@ -24,7 +24,7 @@ const PROJECTS = {
     siteLabel_zh: "访问 LUCI 官网",
     pdfUrl: "https://drive.google.com/file/d/18_K5bmIR97BymcdhGoAd8xp2d-SSofTa/view?usp=sharing",
     desc_en: "Hardware & Software Ecosystem within Luci AI — Bridging multi-terminal physical capture with advanced AI memory models. Defined global market positioning for the Luci AI ecosystem (comprising Luci Pin hardware, Luci App, and Luci Desktop). Conceived and developed the core \"Highlights\" feature, orchestrated the US & EU Beta Interview Program, and drove the refinement of the brand identity.",
-    desc_zh: "memories.ai 旗下的硬件与应用生态 —— 连接物理感知与 AI 记忆模型。我负责市场定位、0–1 开发核心功能「Highlights」、主导美 & 欧 Beta 用户访谈，并优化品牌身份。",
+    desc_zh: "LUCI AI 硬件与软件生态 —— 打通多终端物理捕捉与先进 AI 记忆模型。为 LUCI AI 生态（涵盖 Luci Pin 硬件、Luci App 与 Luci Desktop）定义全球市场定位。构思并开发核心功能「Highlights」，统筹美欧 Beta 用户访谈计划，推动品牌身份优化。",
     tags_en: ["AI PM", "Product Design", "Hardware + App", "Branding", "User Research", "Beta Program"],
     tags_zh: ["AI 产品经理", "产品设计", "硬件 + App", "品牌", "用户研究", "Beta 项目"],
     heroImg: { src: "images/projects/luci-ai/hero.png", label_en: "LUCI · Personal Memory Companion", label_zh: "LUCI · 个人记忆伴侣", sub_en: "Hardware identity", sub_zh: "硬件身份", tone: "mono" },
