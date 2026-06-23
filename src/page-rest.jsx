@@ -494,7 +494,7 @@ function CVPage({ go }) {
                 />
               </p>
               <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-                <button className="btn btn-dark">↓ <T en="CV.pdf" zh="CV.pdf" /></button>
+                <a href="https://drive.google.com/file/d/1UJP1BZBx3ApQtl3Rk-wkJaPnq_7oJX1p/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="btn btn-dark">↓ <T en="CV.pdf" zh="CV.pdf" /></a>
                 <a href="https://www.linkedin.com/in/zeta-zheng-65b580294" target="_blank" rel="noopener noreferrer" className="btn btn-ghost">LinkedIn ↗</a>
                 <button className="btn btn-ghost">chengzheng0702@gmail.com</button>
               </div>
